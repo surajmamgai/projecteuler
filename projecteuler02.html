@@ -1,0 +1,22 @@
+<script type="text/javascript">
+var start = window.performance.now();
+
+const isEven = (n) => n%2 == 0;
+
+let sum = 2, previous = 1, current = 2, temp;
+while (current < 4000000) {
+  temp = current;
+  current = current + previous;
+  previous = temp;
+  if (isEven(current)) {
+    sum += current;
+  }
+}
+
+console.log(sum);
+
+console.log('Took', (window.performance.now() - start).toFixed(4), 'milliseconds to execute the script.');
+</script>
+
+<div>Running Javascript!</div>
+

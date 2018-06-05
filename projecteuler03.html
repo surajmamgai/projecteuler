@@ -1,0 +1,34 @@
+<script type="text/javascript">
+var start = window.performance.now();
+const isPrimeNumber = (i) => {
+  let k = 2;
+  while (k++ && k < i/2) {
+    if (i % k == 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const getPrimeFactors = (number) => {
+  var prime_numbers = [];
+  for (let i = 2; i <= number; i++) {
+    var isPrime = false;
+    if (number % i == 0) {
+      isPrime = isPrimeNumber(i);
+    }
+    if (isPrime) {
+      number = number/i;
+      prime_numbers.push(i);
+    }
+  }
+  return prime_numbers;
+};
+
+console.log(getPrimeFactors(600851475143));
+
+console.log('Took', (window.performance.now() - start).toFixed(4), 'milliseconds to execute the script.');
+
+</script>
+
+<div>Running Javascript!</div>

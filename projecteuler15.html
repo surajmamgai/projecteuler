@@ -1,0 +1,41 @@
+<script type="text/javascript">
+var start = window.performance.now();
+
+var numRoutes = [];
+const getNumRoutes = (i, j) => {
+  numRoutes[i] = numRoutes[i] || [];
+  if (numRoutes[i][j]) {
+    return numRoutes[i][j];
+  }
+  if (i == 0 || j == 0) return 1;
+
+  var routes = getNumRoutes(i-1, j);
+  routes += getNumRoutes(i, j-1);
+
+  numRoutes[i][j] = routes;
+  return routes;
+}
+
+console.log(getNumRoutes(2, 2));
+
+// var n = 2;
+// let count = 0;
+// const getPosibilePaths = (i, j) => {
+//   console.log(i + '' + j);
+//   if (i == n || j == n) count++;
+//   if (i < n && j < n) {
+//     getPosibilePaths((i+1), j);
+//     getPosibilePaths(i, (j+1))
+//   };
+// }
+
+// getPosibilePaths(0, 0);
+// console.log(count);
+
+console.log('Took', (window.performance.now() - start).toFixed(4), 'milliseconds to execute the script.');
+</script>
+
+<div>Running Javascript!</div>
+
+
+

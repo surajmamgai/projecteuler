@@ -1,0 +1,29 @@
+<script type="text/javascript">
+var start = window.performance.now();
+
+const isPrimeNumber = (i) => {
+  let k = 2;
+  while (k++ && k < i) {
+    if (i % k == 0) {
+      return false;
+    }
+  }
+  return true;
+};
+var count = 0;
+var num = 2;
+while (count <= 10001) {
+  if (isPrimeNumber(num)) {
+    count++;
+  }
+  if (count <= 10001) {
+    num++;
+  }
+}
+console.log(num);
+
+console.log('Took', (window.performance.now() - start).toFixed(4), 'milliseconds to execute the script.');
+</script>
+
+<div>Running Javascript!</div>
+

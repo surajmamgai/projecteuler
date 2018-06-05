@@ -1,0 +1,31 @@
+<script type="text/javascript">
+var start = window.performance.now();
+
+const getTriangularNumber = (trinum, i) => trinum + i;
+const getFactorsCount = (n) => {
+  let d = 1, maxd = n, count = 0;
+  while (d < maxd) {
+    if (n % d == 0) {
+      count++;
+      let k = n/d;
+      if (k != d) {
+        count++;
+        maxd = k;
+      }
+    }
+    d++;
+  }
+  return count;
+};
+
+var trinum = 0, counter = 1;
+while ((number = getFactorsCount(trinum = getTriangularNumber(trinum, counter))) <= 500) {
+  counter++;
+}
+console.log(trinum);
+console.log(number);
+console.log('Took', (window.performance.now() - start).toFixed(4), 'milliseconds to execute the script.');
+</script>
+
+<div>Running Javascript!</div>
+

@@ -1,0 +1,30 @@
+<script type="text/javascript">
+var start = window.performance.now();
+
+const numberIsPalindrom = (number) => {
+  var num2string = parseInt(String(number).split("").reverse().join(""));
+  return (number == num2string);
+};
+
+const getPalindromicNumber = (start, end) => {
+  var max = 0;
+  for (let i=start; i <= end; i++) {
+    for (let j=start; j <= end; j++) {
+      number = i * j;
+      if (numberIsPalindrom(number)) {
+        if (max < number) {
+          max = number;
+        }
+      }
+    }
+  }
+  return max;
+};
+
+console.log(getPalindromicNumber(100, 999));
+
+console.log('Took', (window.performance.now() - start).toFixed(4), 'milliseconds to execute the script.');
+
+</script>
+
+<div>Running Javascript!</div>

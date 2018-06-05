@@ -1,0 +1,23 @@
+<script type="text/javascript">
+var start = window.performance.now();
+
+const sum = 1000;
+var flag = true;
+for (let c=1; c<=sum; c++) {
+  for (let b=1; b<c; b++) {
+    for (let a=1; a<b; a++) {
+      if (((a*a) + (b*b)) == (c*c) && (a+b+c) == sum) {
+        console.log(a*b*c);
+        flag = false;
+        break;
+      }
+    }
+    if (flag == false) break;
+  }
+  if (flag == false) break;
+}
+
+console.log('Took', (window.performance.now() - start).toFixed(4), 'milliseconds to execute the script.');
+</script>
+
+<div>Running Javascript!</div>

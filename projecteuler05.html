@@ -1,0 +1,25 @@
+<script type="text/javascript">
+var start = window.performance.now();
+
+var continue_checking = true;
+var i = 20, number = 20, count = 1;
+while (continue_checking) {
+  continue_checking = false;
+  number = i * count;
+  for (j=19; j>=11; j--) {
+    if (number % j != 0) {
+      continue_checking = true;
+    }
+  }
+  count++;
+}
+if (!continue_checking) {
+  console.log(number);
+}
+
+console.log('Took', (window.performance.now() - start).toFixed(4), 'milliseconds to execute the script.');
+
+</script>
+
+<div>Running Javascript!</div>
+
